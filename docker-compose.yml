@@ -1,0 +1,30 @@
+version: '2'
+services:
+  registry:
+    image: registry:2
+    container_name: registry
+    volumes: 
+      - ./registry:/etc/docker/registry/
+      - /media/usb0/registry:/var/lib/registry 
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.3
+  caddy:
+    build: ./caddy
+    container_name: registry-proxy
+    environment:
+      - CLOUDFLARE_EMAIL=cloudflare@yourmail.com
+      - CLOUDFLARE_API_KEY=123
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.2
+    links:
+      - "registry:registry"
+    volumes: 
+      - ./caddy-cache:/root/.caddy
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          ip_range: 172.28.5.0/24

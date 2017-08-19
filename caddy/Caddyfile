@@ -1,0 +1,9 @@
+reg.maartje.tech {
+    timeouts none
+    tls {
+        dns cloudflare
+    }
+    proxy / registry:5000 {
+        transparent
+    }
+}
