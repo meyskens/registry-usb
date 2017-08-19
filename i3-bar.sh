@@ -10,10 +10,10 @@ function checkStatus {
 
 function onOff {
         echo '<span foreground="orange">TOGGLING</span>';
-	ip link show dev tun0 > /dev/null
+	docker inspect registry 1> /dev/null 2>&1
         case $? in
           0) docker-compose down >/dev/null ;;
-          *) docker-compose run -d ;;
+          *) docker-compose up -d ;;
         esac
 }
 
