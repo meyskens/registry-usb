@@ -3,6 +3,8 @@ Docker registry on a USB Flash Drive
 
 Got big images but no direct fiber to your laptop? No problem! Just Bring Your Own Docker Registry. This is a project used to my [DockerBook](https://eyskens.me/docker-on-the-desktop/) to store large Docker images containing Windows. After brainstorming about local registry servers [Carolyn Van Slyck](http://carolynvanslyck.com/) came on the idea to just host in on a local USB Flash drive.
 
+![Pushing a VM with Visual Studio](https://static.eyskens.me/push-win10.png)
+
 ## How to setup
 The setup consists our of 2 parts in the `docker-compose.yml`, if you have never used this I suggest to look into ["Overview of Docker Compose"](https://docs.docker.com/compose/overview/).
 
